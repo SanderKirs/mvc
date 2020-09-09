@@ -3,7 +3,15 @@ elemendid = []
 #Lisame ELEMENDI juurde
 def lisa_element(nimetus, hind, kogus):
     global elemendid
-    elemendid.append({"nimetus":nimetus, "hind":hind, "kogus":kogus})
+    for element in elemendid:
+        if nimetus in element.values():
+            print("Element {} on juba olemas".format(nimetus))
+            break
+        else:
+            elemendid.append({"nimetus": nimetus, "hind": hind, "kogus": kogus})
+            print("Lisati ", str(nimetus))
+            break
+
 
 
 #Lisame ELEMENDID KORRAGA juurde
@@ -24,7 +32,10 @@ def main():
     print(elemendid)
 
     #Testime elemendi lisamist
-    lisa_element("kohupiim",0.90,15)
+    lisa_element("kohupiim", 0.90, 15)
+    #print(elemendid)
+
+    lisa_element("leib", 0.80, 5)
     print(elemendid)
 
 #käivitamine
