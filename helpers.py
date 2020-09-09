@@ -25,6 +25,18 @@ def loe_elemendid():
         loetud_elemendid.append(element)
     return loetud_elemendid
 
+#loeme konkreetne element
+def loe_element(nimetus):
+     global elemendid
+     for element in elemendid:
+         if nimetus not in element.values():
+             print("Element {} ei eksisteeri".format(nimetus))
+             break
+         else:
+             return print("Element,", str(nimetus),  ",on loendis olemas.")
+             break
+
+
 def main():
 
     #Loome katse andmestiku
@@ -47,3 +59,6 @@ def main():
 #Käivitamine
 if __name__ == "__main__":
     main()
+
+print(loe_element("leib"))
+
