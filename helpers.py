@@ -45,6 +45,20 @@ def uuenda_element(nimetus,hind,kogus):
     else:
         elemendid[nimetused.index(nimetus)] = {"nimetus":nimetus, "hind":hind, "kogus":kogus}
 
+def kustuta_element(nimetus):
+    global elemendid
+    nimetused = []
+    for element in elemendid:
+        nimetused.append(list(element.values())[0])
+    if nimetus not in nimetused:
+        return "Element {} ei eksisteeri".format(nimetus)
+    else:
+        elemendid.remove(elemendid[nimetused.index(nimetus)])
+
+def kustuta_elemendid():
+    global elemendid
+    elemendid.clear()
+
 def main():
 
     #Loome katse andmestiku
@@ -75,3 +89,11 @@ lisa_element("vein", 0.50, 5)
 #Testime elemendi uuendamist
 uuenda_element("vein", 0.15, 7)
 print(loe_element("vein"))
+
+#Testime ühe elemendi kustutamist
+kustuta_element("vein")
+print(elemendid)
+
+#Testime kõikide elementide kustutamist
+kustuta_elemendid()
+print(elemendid)
