@@ -3,14 +3,13 @@ elemendid = []
 #Lisame ELEMENDI juurde
 def lisa_element(nimetus, hind, kogus):
     global elemendid
+    nimetused = []
     for element in elemendid:
-        if nimetus in element.values():
-            print("Element {} on juba olemas".format(nimetus))
-            break
-        else:
-            elemendid.append({"nimetus": nimetus, "hind": hind, "kogus": kogus})
-            print("Lisati ", str(nimetus))
-            break
+        nimetused.append(list(element.values())[0])
+    if nimetus in nimetused:
+        print("Element {} juba eksisteerib".format(nimetus))
+    else:
+        elemendid.append({"nimetus":nimetus, "hind":hind, "kogus":kogus})
 
 #Lisame ELEMENDID KORRAGA juurde
 def lisa_elemendid(elementide_nimekiri):
@@ -27,15 +26,24 @@ def loe_elemendid():
 
 #loeme konkreetne element
 def loe_element(nimetus):
-     global elemendid
-     for element in elemendid:
-         if nimetus not in element.values():
-             print("Element {} ei eksisteeri".format(nimetus))
-             break
-         else:
-             return print("Element,", str(nimetus),  ",on loendis olemas.")
-             break
+    global elemendid
+    nimetused = []
+    for element in elemendid:
+        nimetused.append(list(element.values())[0])
+    if nimetus not in nimetused:
+        return "Elementi {} ei eksisteeri".format(nimetus)
+    else:
+        return elemendid[nimetused.index(nimetus)]
 
+def uuenda_element(nimetus,hind,kogus):
+    global elemendid
+    nimetused = []
+    for element in elemendid:
+        nimetused.append(list(element.values())[0])
+    if nimetus not in nimetused:
+        return "Element {} ei eksisteeri".format(nimetus)
+    else:
+        elemendid[nimetused.index(nimetus)] = {"nimetus":nimetus, "hind":hind, "kogus":kogus}
 
 def main():
 
@@ -59,6 +67,11 @@ def main():
 #Käivitamine
 if __name__ == "__main__":
     main()
+#ühe elemendi lugemine
+#print(loe_element("leib"))
 
-print(loe_element("leib"))
+lisa_element("vein", 0.50, 5)
 
+#Testime elemendi uuendamist
+uuenda_element("vein", 0.15, 7)
+print(loe_element("vein"))
