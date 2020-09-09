@@ -12,20 +12,26 @@ def lisa_element(nimetus, hind, kogus):
             print("Lisati ", str(nimetus))
             break
 
-
-
 #Lisame ELEMENDID KORRAGA juurde
 def lisa_elemendid(elementide_nimekiri):
     global elemendid
     elemendid = elementide_nimekiri
 
+#Loeme elemendid korraga
+def loe_elemendid():
+    global elemendid
+    loetud_elemendid = []
+    for element in elemendid:
+        loetud_elemendid.append(element)
+    return loetud_elemendid
+
 def main():
 
     #Loome katse andmestiku
     katse_elemendid = [
-        {"nimetus": "leib", "hind":0.80, "kogus":20},
-        {"nimetus": "piim", "hind":0.50, "kogus":15},
-        {"nimetus": "vein", "hind":5.60, "kogus":5},
+        {"nimetus": "leib", "hind": 0.80, "kogus": 20},
+        {"nimetus": "piim", "hind": 0.50, "kogus": 15},
+        {"nimetus": "vein", "hind": 5.60, "kogus": 5},
     ]
     #Testime elementide lisamist
     lisa_elemendid(katse_elemendid)
@@ -38,6 +44,6 @@ def main():
     lisa_element("leib", 0.80, 5)
     print(elemendid)
 
-#käivitamine
+#Käivitamine
 if __name__ == "__main__":
     main()
