@@ -27,6 +27,7 @@ def loe_elemendid():
 #loeme konkreetne element
 def loe_element(nimetus):
     global elemendid
+    elemendid = []
     nimetused = []
     for element in elemendid:
         nimetused.append(list(element.values())[0])
