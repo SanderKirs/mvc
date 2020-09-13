@@ -1,25 +1,26 @@
-
+import helpers
 class Model:
+    # konstruktor
     def __init__(self, elemendid):
-        self.lisa_elemendid(andmed)
-#elementide lisamine
+        self.lisa_elemendid(elemendid)
+    # elemendite lisamine
     def lisa_elemendid(self, elemendid):
         helpers.lisa_elemendid(elemendid)
-#elemendi lisamine
+
     def lisa_element(self, nimetus, hind, kogus):
-        helpers.lisa_element(elemendid)
-#elemendi lugemine
-    def loe_element(self,nimetus):
-        helpers.loe_element(elemendid)
-#elementide lugemine
+        helpers.lisa_element(nimetus, hind, kogus)
+    # elementide lugemine
     def loe_elemendid(self):
-        helpers.loe_elemendid(elemendid)
-#elemendi kustutamine
-    def kustuta_element(self,nimetus):
-        helpers.kustuta_element(elemendid)
-#elementide kustutamine
+        return helpers.loe_elemendid()
+
+    def loe_element(self, nimetus):
+        return helpers.loe_element(nimetus)
+    # elemendi uuendamine
+    def uuenda_element(self, nimetus, hind, kogus):
+        helpers.uuenda_element(nimetus, hind, kogus)
+    # elementide kustutamine
+    def kustuta_element(self, nimetus):
+        helpers.kustuta_element(nimetus)
+
     def kustuta_elemendid(self):
-        helpers.kustuta_elemendid(elemendid)
-#elemendi uuendamine
-    def uuenda_element(self,nimetus, hind, kogus):
-        helpers.uuenda_element(elemendid)
+        helpers.kustuta_elemendid()
